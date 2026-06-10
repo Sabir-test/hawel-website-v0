@@ -71,11 +71,13 @@ export function SiteHeader() {
                 {l.label}
               </a>
             ))}
-            <Button asChild className="mt-2 font-semibold">
-              <a href="#contact" onClick={() => setOpen(false)}>
-                ابدأ الآن
-              </a>
-            </Button>
+            <a
+              href="#contact"
+              onClick={() => setOpen(false)}
+              className={buttonVariants({ className: 'mt-2 font-semibold' })}
+            >
+              ابدأ الآن
+            </a>
           </nav>
         </div>
       )}

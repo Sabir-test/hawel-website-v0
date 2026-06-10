@@ -1,5 +1,5 @@
 import { Check, Feather, Sprout, Building2 } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
 import { SectionHeading } from './section-heading'
 import { cn } from '@/lib/utils'
 
@@ -149,18 +149,20 @@ export function Pricing() {
                 ))}
               </ul>
 
-              <Button
-                asChild
-                className={cn(
-                  'mt-7 w-full font-bold',
-                  tier.featured
-                    ? 'bg-gold text-gold-foreground hover:bg-gold/90'
-                    : '',
-                )}
-                variant={tier.featured ? 'default' : 'outline'}
+              <a
+                href="#contact"
+                className={buttonVariants({
+                  variant: tier.featured ? 'default' : 'outline',
+                  className: cn(
+                    'mt-7 w-full font-bold',
+                    tier.featured
+                      ? 'bg-gold text-gold-foreground hover:bg-gold/90'
+                      : '',
+                  ),
+                })}
               >
-                <a href="#contact">ابدأ الآن</a>
-              </Button>
+                ابدأ الآن
+              </a>
             </div>
           ))}
         </div>

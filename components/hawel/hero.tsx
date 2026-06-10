@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { ArrowLeft, ShieldCheck, Wifi } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
 
 export function Hero() {
   return (
@@ -46,24 +46,28 @@ export function Hero() {
           </p>
 
           <div className="flex flex-wrap items-center gap-3">
-            <Button
-              asChild
-              size="lg"
-              className="bg-gold font-bold text-gold-foreground hover:bg-gold/90"
+            <a
+              href="#contact"
+              className={buttonVariants({
+                size: 'lg',
+                className:
+                  'flex items-center gap-2 bg-gold font-bold text-gold-foreground hover:bg-gold/90',
+              })}
             >
-              <a href="#contact" className="flex items-center gap-2">
-                كن من أوائل التجار
-                <ArrowLeft className="size-4" />
-              </a>
-            </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="border-primary-foreground/30 bg-transparent font-semibold text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+              كن من أوائل التجار
+              <ArrowLeft className="size-4" />
+            </a>
+            <a
+              href="#products"
+              className={buttonVariants({
+                size: 'lg',
+                variant: 'outline',
+                className:
+                  'border-primary-foreground/30 bg-transparent font-semibold text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground',
+              })}
             >
-              <a href="#products">استكشف المنتجات</a>
-            </Button>
+              استكشف المنتجات
+            </a>
           </div>
 
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-2 text-sm text-primary-foreground/70">

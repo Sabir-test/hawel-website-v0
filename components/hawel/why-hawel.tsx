@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { Globe, FileCode2, TrendingUp, Store, ArrowLeft } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
 
 const contacts = [
   { icon: Globe, label: 'الموقع', value: 'hawel.sd' },
@@ -38,24 +38,28 @@ export function WhyHawel() {
         </p>
 
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-          <Button
-            asChild
-            size="lg"
-            className="bg-gold font-bold text-gold-foreground hover:bg-gold/90"
+          <a
+            href="mailto:merchants@hawel.sd"
+            className={buttonVariants({
+              size: 'lg',
+              className:
+                'flex items-center gap-2 bg-gold font-bold text-gold-foreground hover:bg-gold/90',
+            })}
           >
-            <a href="mailto:merchants@hawel.sd" className="flex items-center gap-2">
-              تواصل معنا
-              <ArrowLeft className="size-4" />
-            </a>
-          </Button>
-          <Button
-            asChild
-            size="lg"
-            variant="outline"
-            className="border-primary-foreground/30 bg-transparent font-semibold text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
+            تواصل معنا
+            <ArrowLeft className="size-4" />
+          </a>
+          <a
+            href="mailto:investors@hawel.sd"
+            className={buttonVariants({
+              size: 'lg',
+              variant: 'outline',
+              className:
+                'border-primary-foreground/30 bg-transparent font-semibold text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground',
+            })}
           >
-            <a href="mailto:investors@hawel.sd">استفسارات المستثمرين</a>
-          </Button>
+            استفسارات المستثمرين
+          </a>
         </div>
 
         <div className="mx-auto mt-14 grid max-w-3xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
