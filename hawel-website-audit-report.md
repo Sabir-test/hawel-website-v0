@@ -12,10 +12,9 @@
 **File:** `comparison.tsx`
 **Current:** `'SADAD (قطر)'`
 **Correct:** `'SADAD (السعودية)'`
-SADAD is operated by Saudi Payments (a subsidiary of SAMA — the Saudi Central Bank). Listing it as Qatari in an investor-facing pitch deck is a credibility-damaging error.
+- SADAD is operated by Saudi Payments (a subsidiary of SAMA — the Saudi Central Bank). but it has a branch working in Qatar. 
 
-#### 2. SkipCash is listed as Qatari — partially correct but incomplete
-SkipCash is UAE/Qatar-regional. The label `SkipCash (قطر)` is acceptable but consider: `SkipCash (الخليج)` to be more accurate since it operates across GCC.
+- SkipCash is Qatari startup so The label `SkipCash (قطر)` is 100% acceptable and correct. to be more accurate since it operates across GCC.
 
 #### 3. "استعاد بنك السودان المركزي EBS الإلكتروني في يناير 2026" — needs source citation or softening
 **File:** `why-hawel.tsx`
