@@ -1,6 +1,8 @@
-# hawel-website-v0
+# hawel-branding-identity
 
-A [Next.js](https://nextjs.org) project for the Hawel website.
+Feature branch for the Hawel website branding identity. This branch owns all brand identity related work: defining and documenting the brand theme (colors, logo, slogan), brand tone (marketing approach for customers vs investors), feature branding, and marketing artifacts (company profile, brochures, social media posts, website content, and any public-facing media).
+
+Audit findings and brand identity references are maintained in [`docs/`](docs/) — see [`docs/audit-report.md`](docs/audit-report.md) for the full audit and [`docs/brand-guidelines.md`](docs/brand-guidelines.md) for brand rules.
 
 ## Getting Started
 
