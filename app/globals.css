@@ -137,4 +137,24 @@
   html {
     @apply font-sans;
   }
+  /* Tabular numerals for consistent number column alignment */
+  .tabular-nums,
+  [class*='text-3xl'],
+  [class*='text-4xl'] {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@keyframes hawel-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.hawel-pulse-node {
+  animation: hawel-pulse 2.2s ease-in-out infinite;
 }

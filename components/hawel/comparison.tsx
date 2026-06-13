@@ -3,18 +3,18 @@ import { SectionHeading } from './section-heading'
 
 type Cell = string | boolean
 
-const columns = ['SkipCash (قطر)', 'SADAD (قطر)', 'Hawel (السودان)']
+const columns = ['SkipCash (الخليج)', 'SADAD (السعودية)', 'Paystack (أفريقيا)', 'Hawel (السودان)']
 
 const rows: { feature: string; values: Cell[] }[] = [
-  { feature: 'بوابة دفع API', values: ['REST + plugins', 'مستضافة + iFrame', 'REST + SDK'] },
-  { feature: 'روابط الدفع', values: ['إنشاء ومشاركة', 'واتساب/SMS', 'واتساب — بالعربية أولاً'] },
-  { feature: 'مدفوعات QR', values: ['ثابت + ديناميكي', 'أوفلاين-لأونلاين', 'ثابت + ديناميكي + طباعة'] },
-  { feature: 'لوحة تحكم التاجر', values: ['تتبع فوري', 'تحليلات كاملة', 'ثنائية AR/EN + تسوية'] },
-  { feature: 'التوافق مع الشريعة', values: [false, false, 'رسوم أجرة معتمدة'] },
-  { feature: 'احتياطي USSD (#34*)', values: [false, false, true] },
-  { feature: 'تكامل EBS المحلي', values: [false, false, 'المقسم الوطني الوحيد'] },
-  { feature: 'العربية أولاً (RTL)', values: ['ثانوية', 'AR + EN', 'افتراضية'] },
-  { feature: 'زين كاش / MTN Money', values: [false, false, true] },
+  { feature: 'بوابة دفع API', values: ['REST + plugins', 'مستضافة + iFrame', 'REST + SDK (25 دولة)', 'REST + SDK'] },
+  { feature: 'روابط الدفع', values: ['إنشاء ومشاركة', 'واتساب/SMS', 'مشاركة عامة', 'واتساب — بالعربية أولاً'] },
+  { feature: 'مدفوعات QR', values: ['ثابت + ديناميكي', 'أوفلاين-لأونلاين', false, 'ثابت + ديناميكي + طباعة'] },
+  { feature: 'لوحة تحكم التاجر', values: ['تتبع فوري', 'تحليلات كاملة', 'تحليلات كاملة', 'ثنائية AR/EN + تسوية'] },
+  { feature: 'التوافق مع الشريعة', values: [false, false, false, 'رسوم أجرة معتمدة'] },
+  { feature: 'احتياطي USSD', values: [false, false, false, true] },
+  { feature: 'تكامل شبكة محلية', values: ['Mastercard', 'mada (SAMA)', 'Flutterwave', 'EBS — المقسم الوطني'] },
+  { feature: 'العربية أولاً (RTL)', values: ['ثانوية', true, false, 'افتراضية'] },
+  { feature: 'شبكات المحافظ المحلية', values: [false, false, false, 'زين كاش / MTN Money'] },
 ]
 
 function renderCell(v: Cell, highlight: boolean) {
@@ -43,7 +43,7 @@ export function Comparison() {
         <SectionHeading
           eyebrow="الموقع التنافسي"
           title="حوِّل مقابل المنافسين الإقليميين"
-          description="درسنا SkipCash وSADAD ومعايير عالمية. هنا نتطابق، نتفوق، ونعالج سياق السودان المحدد بشكل فريد."
+          description="درسنا SkipCash وSADAD وPaystack — المعيار الأفريقي العالمي الذي استحوذت عليه Stripe. هنا نتطابق، نتفوق، ونعالج سياق السودان المحدد بشكل فريد."
         />
 
         <div className="mt-12 overflow-x-auto rounded-3xl border border-border shadow-sm">
@@ -55,7 +55,7 @@ export function Comparison() {
                   <th
                     key={c}
                     className={`px-5 py-4 text-center text-sm font-bold ${
-                      i === 2 ? 'text-gold' : ''
+                      i === 3 ? 'text-gold' : ''
                     }`}
                   >
                     {c}
@@ -76,10 +76,10 @@ export function Comparison() {
                     <td
                       key={vi}
                       className={`px-5 py-4 text-center ${
-                        vi === 2 ? 'bg-primary/5' : ''
+                        vi === 3 ? 'bg-primary/5' : ''
                       }`}
                     >
-                      {renderCell(v, vi === 2)}
+                      {renderCell(v, vi === 3)}
                     </td>
                   ))}
                 </tr>

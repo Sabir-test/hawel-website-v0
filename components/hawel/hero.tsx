@@ -35,14 +35,14 @@ export function Hero() {
           </span>
 
           <h1 className="text-balance text-4xl font-extrabold leading-[1.15] tracking-tight sm:text-5xl lg:text-6xl">
-            بنية تحتية للمدفوعات في السودان{' '}
-            <span className="text-gold">بمستوى مطورين</span>
+            اجعل أي هاتف يقبل الدفع —{' '}
+            <span className="text-gold">ابدأ اليوم</span>
           </h1>
 
           <p className="max-w-xl text-pretty text-base leading-relaxed text-primary-foreground/80 sm:text-lg">
-            «حوِّل» — للتحويل، وللتحول. واجهة برمجة تطبيقات نظيفة، روابط دفع عبر
-            واتساب، رموز QR قابلة للطباعة، ولوحة تحكم تتحدث العربية أولاً. مبنية
-            على شبكة EBS — المقسم المصرفي الوطني الذي يربط بنوك السودان الـ 37.
+            «Stripe» للسودان — API واحد يصل إلى ٣٧ بنكاً عبر EBS. روابط دفع عبر
+            واتساب، رموز QR قابلة للطباعة، ولوحة تحكم تتحدث العربية أولاً.
+            متوافق مع الشريعة. يعمل دون اتصال.
           </p>
 
           <div className="flex flex-wrap items-center gap-3">

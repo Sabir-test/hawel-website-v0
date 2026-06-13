@@ -14,10 +14,26 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'حوِّل | Hawel — شريكك في الدفع الرقمي',
+  title: 'حوِّل | Hawel — بنية تحتية للمدفوعات في السودان',
   description:
     'حوِّل: أول بنية تحتية للمدفوعات الرقمية بمستوى مطورين في السودان. بوابة دفع API، روابط دفع، مدفوعات QR، ولوحة تحكم عربية أولاً مبنية على شبكة EBS الوطنية.',
-  generator: 'v0.app',
+  openGraph: {
+    title: 'حوِّل | Hawel — بنية تحتية للمدفوعات في السودان',
+    description:
+      'أول بوابة دفع API للمطورين في السودان. مبنية على EBS. متوافقة مع الشريعة. تعمل دون اتصال.',
+    url: 'https://hawel.sd',
+    siteName: 'حوِّل | Hawel',
+    locale: 'ar_SD',
+    alternateLocale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'حوِّل | Hawel',
+    description:
+      "Sudan's first developer-grade payment infrastructure. API gateway · WhatsApp links · QR payments · Sharia-compliant.",
+  },
+  metadataBase: new URL('https://hawel.sd'),
 }
 
 export default function RootLayout({

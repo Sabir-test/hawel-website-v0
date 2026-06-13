@@ -3,15 +3,30 @@ import { HawelLogo } from './logo'
 const linkGroups = [
   {
     title: 'المنتجات',
-    links: ['بوابة الدفع API', 'روابط الدفع', 'مدفوعات QR', 'لوحة التحكم'],
+    links: [
+      { label: 'بوابة الدفع API', href: '#products' },
+      { label: 'روابط الدفع', href: '#products' },
+      { label: 'مدفوعات QR', href: '#products' },
+      { label: 'لوحة التحكم', href: '#products' },
+    ],
   },
   {
     title: 'الشركة',
-    links: ['من نحن', 'فرصة السوق', 'خارطة الطريق', 'تواصل معنا'],
+    links: [
+      { label: 'من نحن', href: '#summary' },
+      { label: 'فرصة السوق', href: '#market' },
+      { label: 'خارطة الطريق', href: '#roadmap' },
+      { label: 'تواصل معنا', href: '#contact' },
+    ],
   },
   {
     title: 'المطورون',
-    links: ['مستندات API', 'بيئة التجربة', 'SDK', 'GitHub'],
+    links: [
+      { label: 'مستندات API', href: 'https://docs.hawel.sd' },
+      { label: 'بيئة التجربة', href: 'https://docs.hawel.sd/sandbox' },
+      { label: 'GitHub', href: 'https://github.com/hawel-sd' },
+      { label: 'SDK', href: 'https://docs.hawel.sd/sdk' },
+    ],
   },
 ]
 
@@ -35,12 +50,12 @@ export function SiteFooter() {
               </h3>
               <ul className="mt-4 space-y-3">
                 {group.links.map((link) => (
-                  <li key={link}>
+                  <li key={link.label}>
                     <a
-                      href="#"
+                      href={link.href}
                       className="text-sm text-muted-foreground transition-colors hover:text-primary"
                     >
-                      {link}
+                      {link.label}
                     </a>
                   </li>
                 ))}
@@ -51,7 +66,7 @@ export function SiteFooter() {
 
         <div className="mt-12 flex flex-col gap-2 border-t border-border pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>© 2026 حوِّل (Hawel). جميع الحقوق محفوظة.</p>
-          <p>الإصدار 1.0 · يونيو 2026 · سري — لأصحاب المصلحة فقط.</p>
+          <p>الإصدار 1.0 · يونيو 2026</p>
         </div>
       </div>
     </footer>
