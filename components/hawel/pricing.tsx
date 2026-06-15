@@ -124,6 +124,11 @@ export function Pricing() {
                   </span>
                 )}
               </div>
+              {tier.name === 'Business' && (
+                <p className="mt-1 text-xs text-primary-foreground/55">
+                  المتوسط العالمي: 2.9% + رسوم ثابتة
+                </p>
+              )}
               <p
                 className={cn(
                   'mt-1 text-sm',

@@ -108,12 +108,16 @@ export function Roadmap() {
                   aria-hidden="true"
                   className="absolute -left-3 top-1/2 hidden size-6 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-card text-muted-foreground lg:flex"
                 >
-                  ‹
+                  ›
                 </div>
               )}
             </div>
           ))}
         </div>
+
+        <p className="mt-8 text-center text-xs text-muted-foreground">
+          * تعتمد الجداول الزمنية على الحصول على الموافقات التنظيمية من بنك السودان المركزي في المواعيد المتوقعة.
+        </p>
       </div>
     </section>
   )

@@ -3,10 +3,10 @@ import { Globe, FileCode2, TrendingUp, Store, ArrowLeft } from 'lucide-react'
 import { buttonVariants } from '@/components/ui/button'
 
 const contacts = [
-  { icon: Globe, label: 'الموقع', value: 'hawel.sd' },
-  { icon: FileCode2, label: 'مستندات المطورين', value: 'docs.hawel.sd' },
-  { icon: TrendingUp, label: 'استفسارات المستثمرين', value: 'investors@hawel.sd' },
-  { icon: Store, label: 'شراكات التجار', value: 'merchants@hawel.sd' },
+  { icon: Globe, label: 'الموقع', value: 'hawel.sd', href: 'https://hawel.sd' },
+  { icon: FileCode2, label: 'مستندات المطورين', value: 'docs.hawel.sd', href: 'https://docs.hawel.sd' },
+  { icon: TrendingUp, label: 'استفسارات المستثمرين', value: 'investors@hawel.sd', href: 'mailto:investors@hawel.sd' },
+  { icon: Store, label: 'شراكات التجار', value: 'merchants@hawel.sd', href: 'mailto:merchants@hawel.sd' },
 ]
 
 export function WhyHawel() {
@@ -28,9 +28,9 @@ export function WhyHawel() {
           السودان لا يحتاج محفظة هاتف أخرى — يحتاج طبقة بنية تحتية للمدفوعات
         </h2>
         <p className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed text-primary-foreground/85 sm:text-lg">
-          استعاد بنك السودان المركزي EBS الإلكتروني في يناير 2026. الـ Sandbox
-          مفتوح. البنوك تفهم الفجوة. التجار ينتظرون. المطورون في الشتات جاهزون
-          للبناء. التوقيت هو الآن.
+          استعاد بنك السودان المركزي EBS الإلكتروني في يناير 2026. بيئة التجربة
+          (Sandbox) متاحة للمطورين المعتمدين. البنوك تفهم الفجوة. التجار ينتظرون.
+          المطورون في الشتات جاهزون للبناء. التوقيت هو الآن.
         </p>
 
         <p className="mt-8 text-balance text-xl font-extrabold text-gold sm:text-2xl">
@@ -72,9 +72,13 @@ export function WhyHawel() {
               <div className="mt-3 text-xs text-primary-foreground/70">
                 {c.label}
               </div>
-              <div className="mt-0.5 text-sm font-bold" dir="ltr">
+              <a
+                href={c.href}
+                className="mt-0.5 block text-sm font-bold transition-colors hover:text-gold"
+                dir="ltr"
+              >
                 {c.value}
-              </div>
+              </a>
             </div>
           ))}
         </div>
