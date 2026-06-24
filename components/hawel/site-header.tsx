@@ -53,6 +53,7 @@ export function SiteHeader() {
           onClick={() => setOpen((v) => !v)}
           className="inline-flex size-10 items-center justify-center rounded-lg border border-border text-foreground lg:hidden"
           aria-label="القائمة"
+          aria-expanded={open}
         >
           {open ? <X className="size-5" /> : <Menu className="size-5" />}
         </button>

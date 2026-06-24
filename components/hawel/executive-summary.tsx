@@ -1,8 +1,8 @@
 const stats = [
-  { value: '37', label: 'بنكاً على شبكة EBS' },
-  { value: '+47 مليون', label: 'نسمة عدد سكان السودان' },
-  { value: '33 مليون', label: 'مشترك إنترنت عبر الهاتف' },
-  { value: '0', label: 'بوابات دفع حالية للمطورين' },
+  { value: '٣٧', label: 'بنكاً على شبكة EBS' },
+  { value: '٤٧M+', label: 'نسمة عدد سكان السودان' },
+  { value: '٣٣M', label: 'مشترك إنترنت عبر الهاتف' },
+  { value: '٠', label: 'بوابة دفع API موجودة — نحن الأول' },
 ]
 
 export function ExecutiveSummary() {
@@ -17,7 +17,7 @@ export function ExecutiveSummary() {
 
             <blockquote className="mt-6 border-r-4 border-gold pr-5">
               <p className="text-balance text-2xl font-bold leading-snug text-foreground sm:text-3xl">
-                «حوِّل» — للتحويل، وللتحول. الاسم يختصر الرؤية.
+                السودان يعالج عشرات الملايين من معاملات الأموال يومياً — ولا تاجر واحد يستطيع قبول الدفع عبر الإنترنت. هذه هي الفجوة التي نبنيها لها.
               </p>
             </blockquote>
 
