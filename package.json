@@ -24,7 +24,8 @@
   },
   "overrides": {
     "hono": "4.12.25",
-    "postcss": "8.5.17"
+    "next>postcss": "8.5.17",
+    "@vercel/analytics>next>postcss": "8.5.17"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.2.0",
