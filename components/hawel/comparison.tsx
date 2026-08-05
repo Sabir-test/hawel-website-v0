@@ -1,21 +1,10 @@
+'use client'
+
 import { Check, Minus } from 'lucide-react'
+import { useI18n } from '@/lib/i18n'
 import { SectionHeading } from './section-heading'
 
 type Cell = string | boolean
-
-const columns = ['SkipCash (الخليج)', 'SADAD (السعودية)', 'Paystack (أفريقيا)', 'Hawel (السودان)']
-
-const rows: { feature: string; values: Cell[] }[] = [
-  { feature: 'بوابة دفع API', values: ['REST + plugins', 'مستضافة + iFrame', 'REST + SDK (25 دولة)', 'REST + SDK'] },
-  { feature: 'روابط الدفع', values: ['إنشاء ومشاركة', 'واتساب/SMS', 'مشاركة عامة', 'واتساب — بالعربية أولاً'] },
-  { feature: 'مدفوعات QR', values: ['ثابت + ديناميكي', 'أوفلاين-لأونلاين', false, 'ثابت + ديناميكي + طباعة'] },
-  { feature: 'لوحة تحكم التاجر', values: ['تتبع فوري', 'تحليلات كاملة', 'تحليلات كاملة', 'ثنائية AR/EN + تسوية'] },
-  { feature: 'التوافق مع الشريعة', values: [false, false, false, 'رسوم أجرة معتمدة'] },
-  { feature: 'احتياطي USSD', values: [false, false, false, true] },
-  { feature: 'تكامل شبكة محلية', values: ['Mastercard', 'mada (SAMA)', 'Flutterwave', 'EBS — المقسم الوطني'] },
-  { feature: 'العربية أولاً (RTL)', values: ['ثانوية', true, false, 'افتراضية'] },
-  { feature: 'شبكات المحافظ المحلية', values: [false, false, false, 'زين كاش / MTN Money'] },
-]
 
 function renderCell(v: Cell, highlight: boolean) {
   if (v === true)
@@ -37,20 +26,26 @@ function renderCell(v: Cell, highlight: boolean) {
 }
 
 export function Comparison() {
+  const { t } = useI18n()
+  const c = t.comparison
+  const columns = c.columns
+  const rows = c.rows
   return (
     <section id="compare" className="bg-background py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <SectionHeading
-          eyebrow="الموقع التنافسي"
-          title="حوِّل مقابل المنافسين الإقليميين"
-          description="درسنا SkipCash وSADAD وPaystack — المعيار الأفريقي العالمي الذي استحوذت عليه Stripe. هنا نتطابق، نتفوق، ونعالج سياق السودان المحدد بشكل فريد."
+          eyebrow={c.eyebrow}
+          title={c.title}
+          description={c.description}
         />
 
         <div className="mt-12 overflow-x-auto rounded-3xl border border-border shadow-sm">
-          <table className="w-full min-w-[680px] border-collapse text-right">
+          <table className="w-full min-w-[680px] border-collapse text-start">
             <thead>
               <tr className="bg-primary text-primary-foreground">
-                <th className="px-5 py-4 text-right text-sm font-bold">الخدمة</th>
+                <th className="px-5 py-4 text-start text-sm font-bold">
+                  {c.serviceLabel}
+                </th>
                 {columns.map((c, i) => (
                   <th
                     key={c}
@@ -89,19 +84,14 @@ export function Comparison() {
         </div>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            { t: 'EBS-Native', d: 'لا Visa/Mastercard في السودان — EBS هي الشبكة. نحن الوحيدون فوق هذه البنية.' },
-            { t: 'Offline-First', d: 'USSD fallback ومدفوعات QR قابلة للطباعة — مبني لانقطاع الكهرباء وتقلب 3G.' },
-            { t: 'Sharia-First', d: 'هيكل رسوم أجرة، لا عوائد من الاحتفاظ بالأموال، معتمد من هيئة شرعية.' },
-            { t: 'OFAC-Safe', d: 'كل البنية خارج الولاية القضائية الأمريكية، مهيكلة لخدمة السودان قانونياً.' },
-          ].map((c) => (
+          {c.highlights.map((h) => (
             <div
-              key={c.t}
+              key={h.t}
               className="rounded-2xl border border-gold/30 bg-card p-5"
             >
-              <h4 className="font-bold text-primary">{c.t}</h4>
+              <h4 className="font-bold text-primary">{h.t}</h4>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                {c.d}
+                {h.d}
               </p>
             </div>
           ))}
