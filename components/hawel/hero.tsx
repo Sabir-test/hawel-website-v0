@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { ArrowLeft, ShieldCheck, Wifi } from 'lucide-react'
 import { buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
 
 export function Hero() {
   return (
@@ -48,23 +49,20 @@ export function Hero() {
           <div className="flex flex-wrap items-center gap-3">
             <a
               href="#contact"
-              className={buttonVariants({
-                size: 'lg',
-                className:
-                  'flex items-center gap-2 bg-gold font-bold text-gold-foreground hover:bg-gold/90',
-              })}
+              className={cn(
+                buttonVariants({ size: 'lg', variant: 'gold' }),
+                'flex items-center gap-2 font-bold',
+              )}
             >
               كن من أوائل التجار
               <ArrowLeft className="size-4" />
             </a>
             <a
               href="#products"
-              className={buttonVariants({
-                size: 'lg',
-                variant: 'outline',
-                className:
-                  'border-primary-foreground/30 bg-transparent font-semibold text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground',
-              })}
+              className={cn(
+                buttonVariants({ size: 'lg', variant: 'outline' }),
+                'border-primary-foreground/30 bg-transparent font-semibold text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground',
+              )}
             >
               استكشف المنتجات
             </a>

@@ -156,15 +156,12 @@ export function Pricing() {
 
               <a
                 href="#contact"
-                className={buttonVariants({
-                  variant: tier.featured ? 'default' : 'outline',
-                  className: cn(
-                    'mt-7 w-full font-bold',
-                    tier.featured
-                      ? 'bg-gold text-gold-foreground hover:bg-gold/90'
-                      : '',
-                  ),
-                })}
+                className={cn(
+                  buttonVariants({
+                    variant: tier.featured ? 'gold' : 'outline',
+                  }),
+                  'mt-7 w-full font-bold',
+                )}
               >
                 ابدأ الآن
               </a>
