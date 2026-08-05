@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import {
   Zap,
@@ -10,61 +12,28 @@ import {
   Wallet,
   LineChart,
 } from 'lucide-react'
+import { useI18n } from '@/lib/i18n'
 import { SectionHeading } from './section-heading'
 
-const gatewayFeatures = [
-  'REST API مع مستندات SDK شاملة (JS, PHP, Python, React Native).',
-  'صفحة دفع مستضافة (Hosted Checkout) تقلّل نطاق PCI.',
-  'iFrame / Web Checkout مدمج لتجربة سلسة داخل الموقع.',
-  'تكامل EBS — يصل لجميع البنوك التجارية المرخصة الـ 37.',
-  'قنوات زين كاش، MTN، وسوداني للأموال عبر الهاتف.',
-  'إشعارات Webhooks موقّعة بـ HMAC-SHA256 في الوقت الفعلي.',
-  'SMS OTP لتأكيد الخصم (بديل 3DS للبطاقات المحلية).',
-]
-
-const linkSteps = [
-  'يسجل التاجر الدخول للوحة التحكم (لا يحتاج لكود).',
-  'ينشئ رابطاً: اسم المنتج، السعر (SDG)، الوصف العربي.',
-  'ينسخ الرابط — يُنشأ تلقائياً: pay.hawel.sd/p/{id}.',
-  'يشاركه عبر واتساب، SMS، إنستغرام، فيسبوك.',
-  'العميل يفتح الرابط ← صفحة عربية ← OTP ← تم الدفع.',
-  'التاجر يرى إشعاراً في الوقت الفعلي والتسوية.',
-]
-
-const qrCards = [
-  {
-    title: 'QR التاجر الثابت',
-    body: 'كود دائم واحد لكل تاجر. العميل يمسح، يدخل المبلغ، ويدفع. قابل للطباعة ويعمل أوفلاين لدى التاجر.',
-  },
-  {
-    title: 'QR المعاملة الديناميكي',
-    body: 'كود لكل معاملة بمبلغ محدد مسبقاً. يُنشأ من لوحة التحكم أو API. مثالي للتوصيل والخدمات.',
-  },
-  {
-    title: 'مسح التطبيق (مستقبلاً)',
-    body: 'تطبيق حوِّل للمستهلك يمسح أي QR تاجر ويكمل الدفع بالبطاقة المخزنة.',
-  },
-  {
-    title: 'مجموعات QR قابلة للطباعة',
-    body: 'حزم QR بتنسيق PDF مصممة خصيصاً لبائعي الأسواق في السودان.',
-  },
-]
-
-const dashboardFeatures = [
-  { icon: BarChart3, title: 'موجز المعاملات الفوري', body: 'بث مباشر لكل المدفوعات: الحالة، المبلغ، العميل، طريقة الدفع.' },
-  { icon: Wallet, title: 'إدارة التسويات', body: 'تقارير يومية/أسبوعية/شهرية، تصدير PDF وCSV، تسوية T+1.' },
-  { icon: Link2, title: 'منشئ روابط الدفع', body: 'إنشاء وإدارة وإيقاف الروابط مع تحليلات لكل رابط.' },
-  { icon: LineChart, title: 'التحليلات والإيرادات', body: 'تصور الإيرادات وتوزيع طرق الدفع وقمع التحويل.' },
-]
+const dashboardIcons = [BarChart3, Wallet, Link2, LineChart]
 
 export function Products() {
+  const { t } = useI18n()
+  const p = t.products
+  const gatewayFeatures = p.gateway.features
+  const linkSteps = p.links.steps
+  const qrCards = p.qr.cards
+  const dashboardFeatures = p.dashboard.features.map((d, i) => ({
+    ...d,
+    icon: dashboardIcons[i],
+  }))
   return (
     <section id="products" className="bg-secondary/50 py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <SectionHeading
-          eyebrow="المنتجات والخدمات"
-          title="منظومة دفع متكاملة — من API إلى ورقة QR"
-          description="يتكامل المطورون مرة واحدة، ويصل التجار إلى جميع البنوك السودانية الـ 37 عبر EBS. حلول مبنية لواقع السودان."
+          eyebrow={p.eyebrow}
+          title={p.title}
+          description={p.description}
         />
 
         {/* Gateway + Payment Links */}
@@ -75,9 +44,9 @@ export function Products() {
                 <Zap className="size-5" />
               </span>
               <div>
-                <h3 className="text-lg font-bold text-foreground">بوابة الدفع API</h3>
+                <h3 className="text-lg font-bold text-foreground">{p.gateway.title}</h3>
                 <p className="text-xs text-muted-foreground">
-                  REST API + Hosted Checkout + iFrame
+                  {p.gateway.subtitle}
                 </p>
               </div>
             </div>
@@ -109,9 +78,9 @@ export function Products() {
                 <Link2 className="size-5" />
               </span>
               <div>
-                <h3 className="text-lg font-bold text-foreground">روابط الدفع</h3>
+                <h3 className="text-lg font-bold text-foreground">{p.links.title}</h3>
                 <p className="text-xs text-muted-foreground">
-                  من التسجيل إلى التسوية في 6 خطوات
+                  {p.links.subtitle}
                 </p>
               </div>
             </div>
@@ -130,8 +99,7 @@ export function Products() {
             </ol>
 
             <div className="mt-5 rounded-xl bg-secondary p-4 text-sm text-muted-foreground">
-              مبلغ ثابت أو مفتوح · وصف ثنائي اللغة · توليد QR تلقائي لكل رابط ·
-              رسالة واتساب منسّقة.
+              {p.links.note}
             </div>
           </div>
         </div>
@@ -141,7 +109,7 @@ export function Products() {
           <div className="relative overflow-hidden rounded-3xl border border-border shadow-sm lg:col-span-2">
             <Image
               src="/images/qr-payment.png"
-              alt="عميل يمسح كود QR مطبوع على حامل ورقي في مقهى سوداني"
+              alt={p.qr.imageAlt}
               width={520}
               height={620}
               className="h-full w-full object-cover"
@@ -149,11 +117,10 @@ export function Products() {
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-primary/90 to-transparent p-6">
               <div className="flex items-center gap-2 text-primary-foreground">
                 <QrCode className="size-5 text-gold" />
-                <span className="font-bold">مدفوعات كود QR</span>
+                <span className="font-bold">{p.qr.badge}</span>
               </div>
               <p className="mt-1 text-sm text-primary-foreground/85">
-                اطبع كودك على الورق واقبل المدفوعات الرقمية — دون POS أو إنترنت
-                لدى التاجر.
+                {p.qr.caption}
               </p>
             </div>
           </div>
@@ -181,10 +148,10 @@ export function Products() {
             </span>
             <div>
               <h3 className="text-lg font-bold text-foreground">
-                لوحة تحكم التاجر
+                {p.dashboard.title}
               </h3>
               <p className="text-xs text-muted-foreground">
-                بالعربية أولاً، محسّنة للهاتف، مبنية لانقطاع الاتصال.
+                {p.dashboard.subtitle}
               </p>
             </div>
           </div>
@@ -211,11 +178,10 @@ export function Products() {
                 <span className="inline-flex size-11 items-center justify-center rounded-xl bg-gold text-gold-foreground">
                   <Hash className="size-5" />
                 </span>
-                <h3 className="text-lg font-bold">قناة الاتصال الاحتياطية USSD</h3>
+                <h3 className="text-lg font-bold">{p.ussd.title}</h3>
               </div>
               <p className="mt-4 leading-relaxed text-primary-foreground/85">
-                ميزة لا يقدمها المنافسون الإقليميون — لكن السودان يحتاجها. تمكّن
-                قناة USSD من تأكيد الدفع عبر رموز اتصال بسيطة من أي هاتف.
+                {p.ussd.body}
               </p>
             </div>
             <div className="rounded-2xl border border-gold/30 bg-primary-foreground/5 p-6 font-mono text-sm text-gold" dir="ltr">
