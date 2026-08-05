@@ -1,13 +1,8 @@
-'use client'
-
 import Image from 'next/image'
-import { ArrowLeft, ArrowRight, ShieldCheck, Wifi } from 'lucide-react'
+import { ArrowLeft, ShieldCheck, Wifi } from 'lucide-react'
 import { buttonVariants } from '@/components/ui/button'
-import { useI18n } from '@/lib/i18n'
 
 export function Hero() {
-  const { t, lang } = useI18n()
-  const Arrow = lang === 'ar' ? ArrowLeft : ArrowRight
   return (
     <section
       id="top"
@@ -36,16 +31,18 @@ export function Hero() {
         <div className="flex flex-col items-start gap-6">
           <span className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-semibold text-gold">
             <span className="size-1.5 rounded-full bg-gold" />
-            {t.hero.badge}
+            ما قبل الإطلاق · يونيو 2026
           </span>
 
           <h1 className="text-balance text-4xl font-extrabold leading-[1.15] tracking-tight sm:text-5xl lg:text-6xl">
-            {t.hero.titleLead}{' '}
-            <span className="text-gold">{t.hero.titleHighlight}</span>
+            اجعل أي هاتف يقبل الدفع —{' '}
+            <span className="text-gold">ابدأ اليوم</span>
           </h1>
 
           <p className="max-w-xl text-pretty text-base leading-relaxed text-primary-foreground/80 sm:text-lg">
-            {t.hero.subtitle}
+            «Stripe» للسودان — API واحد يصل إلى ٣٧ بنكاً عبر EBS. روابط دفع عبر
+            واتساب، رموز QR قابلة للطباعة، ولوحة تحكم تتحدث العربية أولاً.
+            متوافق مع الشريعة. يعمل دون اتصال.
           </p>
 
           <div className="flex flex-wrap items-center gap-3">
@@ -57,8 +54,8 @@ export function Hero() {
                   'flex items-center gap-2 bg-gold font-bold text-gold-foreground hover:bg-gold/90',
               })}
             >
-              {t.hero.ctaPrimary}
-              <Arrow className="size-4" />
+              كن من أوائل التجار
+              <ArrowLeft className="size-4" />
             </a>
             <a
               href="#products"
@@ -69,18 +66,18 @@ export function Hero() {
                   'border-primary-foreground/30 bg-transparent font-semibold text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground',
               })}
             >
-              {t.hero.ctaSecondary}
+              استكشف المنتجات
             </a>
           </div>
 
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-2 text-sm text-primary-foreground/70">
             <span className="flex items-center gap-2">
               <ShieldCheck className="size-4 text-gold" />
-              {t.hero.trustSharia}
+              متوافق مع الشريعة 100%
             </span>
             <span className="flex items-center gap-2">
               <Wifi className="size-4 text-gold" />
-              {t.hero.trustOffline}
+              يعمل دون اتصال (USSD)
             </span>
           </div>
         </div>
@@ -90,7 +87,7 @@ export function Hero() {
           <div className="relative overflow-hidden rounded-3xl border border-gold/20 shadow-2xl">
             <Image
               src="/images/hero-merchant.png"
-              alt={t.hero.imageAlt}
+              alt="تاجرة سودانية شابة تستخدم تطبيق حوِّل لتأكيد دفعة في متجرها"
               width={720}
               height={820}
               priority

@@ -1,23 +1,47 @@
-'use client'
-
 import { Code2, Store, ShoppingBasket } from 'lucide-react'
-import { useI18n } from '@/lib/i18n'
 import { SectionHeading } from './section-heading'
 
-const segmentIcons = [Code2, Store, ShoppingBasket]
+const segments = [
+  {
+    icon: Code2,
+    tag: 'الشريحة أ',
+    title: 'المطورون والشركات الناشئة',
+    message: '«API واحد. 37 بنكاً. ابدأ العمل في يوم.»',
+    channels: 'مستندات المطورين، GitHub، مجتمعات التقنية في الخرطوم.',
+  },
+  {
+    icon: Store,
+    tag: 'الشريحة ب',
+    title: 'التجار الصغار والمتوسطون',
+    message: '«ابدأ تقبل مدفوعات اليوم. بدون موقع. بدون حضور.»',
+    channels: 'واتساب للأعمال، جمعيات التجار، الغرفة التجارية، المبيعات الميدانية.',
+  },
+  {
+    icon: ShoppingBasket,
+    tag: 'الشريحة ج',
+    title: 'البائعون غير الرسميون',
+    message: '«رابط دفع واحد. اطبعه. علّقه. اقبل مدفوعاتك.»',
+    channels: 'تيك توك السودان، إنستغرام، تفعيل الأسواق، شراكات التمويل الأصغر.',
+  },
+]
+
+const channels = [
+  ['حملات واتساب للأعمال', 'طبقة الاتصال الرئيسية في السودان واستحواذ التجار عبر قوائم البث.'],
+  ['إنستغرام وتيك توك', 'فيديوهات قصيرة: «كيف تحصل على أموالك في 60 ثانية».'],
+  ['مستندات المطورين وGitHub', 'مستندات API عامة، SDK مفتوحة المصدر، sandbox للمطورين.'],
+  ['شراكات جمعيات التجار', 'غرفة الخرطوم التجارية وتوزيع مجموعات QR في الأسواق.'],
+  ['رحلات تفعيل واتساب/SMS', 'سلسلة عربية منسقة: ترحيب، أول رابط، أول كود QR.'],
+  ['مدرسة حوِّل التعليمية', 'دروس يوتيوب وتيك توك باللهجة السودانية للتجار.'],
+]
 
 export function GoToMarket() {
-  const { t } = useI18n()
-  const g = t.gtm
-  const segments = g.segments.map((s, i) => ({ ...s, icon: segmentIcons[i] }))
-  const channels = g.channels
   return (
     <section id="gtm" className="bg-background py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
         <SectionHeading
-          eyebrow={g.eyebrow}
-          title={g.title}
-          description={g.description}
+          eyebrow="استراتيجية التسويق"
+          title="ثلاث شرائح، ثلاث رسائل"
+          description="نضع حوِّل في تقاطع البنية التحتية بمستوى مطورين وإمكانية الوصول للاقتصاد غير الرسمي."
         />
 
         <div className="mt-12 grid gap-6 lg:grid-cols-3">
@@ -46,14 +70,14 @@ export function GoToMarket() {
         </div>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {channels.map((ch) => (
+          {channels.map(([t, d]) => (
             <div
-              key={ch.t}
+              key={t}
               className="rounded-2xl border border-border bg-secondary/40 p-5"
             >
-              <h4 className="font-bold text-foreground">{ch.t}</h4>
+              <h4 className="font-bold text-foreground">{t}</h4>
               <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
-                {ch.d}
+                {d}
               </p>
             </div>
           ))}
