@@ -3,19 +3,14 @@
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { buttonVariants } from '@/components/ui/button'
+import { useI18n } from '@/lib/i18n'
 import { HawelLogo } from './logo'
-
-const navLinks = [
-  { href: '#summary', label: 'نظرة عامة' },
-  { href: '#products', label: 'المنتجات' },
-  { href: '#pricing', label: 'الأسعار' },
-  { href: '#compare', label: 'المقارنة' },
-  { href: '#roadmap', label: 'خارطة الطريق' },
-  { href: '#contact', label: 'تواصل معنا' },
-]
+import { LanguageToggle, ThemeToggle } from './controls'
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false)
+  const { t } = useI18n()
+  const navLinks = t.header.nav
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
@@ -36,27 +31,33 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden items-center gap-2 lg:flex">
+          <ThemeToggle />
+          <LanguageToggle />
           <a
             href="#contact"
             className={buttonVariants({ variant: 'ghost', className: 'text-sm font-semibold' })}
           >
-            تسجيل الدخول
+            {t.header.signIn}
           </a>
           <a href="#contact" className={buttonVariants({ className: 'font-semibold' })}>
-            ابدأ الآن
+            {t.header.getStarted}
           </a>
         </div>
 
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          className="inline-flex size-10 items-center justify-center rounded-lg border border-border text-foreground lg:hidden"
-          aria-label="القائمة"
-          aria-expanded={open}
-        >
-          {open ? <X className="size-5" /> : <Menu className="size-5" />}
-        </button>
+        <div className="flex items-center gap-2 lg:hidden">
+          <ThemeToggle />
+          <LanguageToggle />
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className="inline-flex size-10 items-center justify-center rounded-lg border border-border text-foreground"
+            aria-label={t.header.menu}
+            aria-expanded={open}
+          >
+            {open ? <X className="size-5" /> : <Menu className="size-5" />}
+          </button>
+        </div>
       </div>
 
       {open && (
@@ -77,7 +78,7 @@ export function SiteHeader() {
               onClick={() => setOpen(false)}
               className={buttonVariants({ className: 'mt-2 font-semibold' })}
             >
-              ابدأ الآن
+              {t.header.getStarted}
             </a>
           </nav>
         </div>

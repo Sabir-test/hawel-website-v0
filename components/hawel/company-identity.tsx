@@ -1,19 +1,13 @@
+'use client'
+
 import Image from 'next/image'
+import { useI18n } from '@/lib/i18n'
 import { SectionHeading } from './section-heading'
 
-const facts = [
-  { label: 'اسم الشركة', value: 'حوِّل | Hawel' },
-  { label: 'التأسيس', value: '2026 — ما قبل الإطلاق' },
-  { label: 'المقر', value: 'الإمارات / مصر (آمن من OFAC)' },
-  { label: 'سوق العمليات', value: 'جمهورية السودان (المرحلة الأولى)' },
-  { label: 'نوع العمل', value: 'تقنية مالية — بنية تحتية للمدفوعات (PSP)' },
-  { label: 'الهدف التنظيمي', value: 'رخصة PSP من بنك السودان المركزي' },
-  { label: 'شبكة الربط', value: 'EBS — المقسم المصرفي الوطني' },
-  { label: 'التوافق الشرعي', value: '100% — هيكل رسوم «أجرة» معتمد' },
-  { label: 'عملة التسوية', value: 'الجنيه السوداني (SDG)' },
-]
-
 export function CompanyIdentity() {
+  const { t } = useI18n()
+  const c = t.identity
+  const facts = c.facts
   return (
     <section id="identity" className="bg-secondary/50 py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-5 lg:px-8">
@@ -22,7 +16,7 @@ export function CompanyIdentity() {
             <div className="overflow-hidden rounded-3xl border border-border shadow-lg">
               <Image
                 src="/images/developer.png"
-                alt="أيدي مبرمج سوداني تكتب كوداً برمجياً على لاب توب يعكس بصمة الكود الخضراء"
+                alt={c.imageAlt}
                 width={680}
                 height={760}
                 className="h-full w-full object-cover"
@@ -33,9 +27,9 @@ export function CompanyIdentity() {
           <div>
             <SectionHeading
               align="start"
-              eyebrow="هوية الشركة"
-              title="فلسفة الاسم والعلامة التجارية"
-              description="«حوِّل» فعل أمر عربي يحمل معنيين جوهريين: التحويل — نقل الأموال بين الأطراف، والتحول — تغيير كيفية عمل اقتصاد السودان رقمياً."
+              eyebrow={c.eyebrow}
+              title={c.title}
+              description={c.description}
             />
 
             <dl className="mt-8 grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-2">
