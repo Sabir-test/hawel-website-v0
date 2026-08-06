@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import { Globe, FileCode2, TrendingUp, Store, ArrowLeft } from 'lucide-react'
 import { buttonVariants } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
 
 const contacts = [
   { icon: Globe, label: 'الموقع', value: 'hawel.sd', href: 'https://hawel.sd' },
@@ -41,20 +40,23 @@ export function WhyHawel() {
         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
           <a
             href="mailto:merchants@hawel.sd"
-            className={cn(
-              buttonVariants({ size: 'lg', variant: 'gold' }),
-              'flex items-center gap-2 font-bold',
-            )}
+            className={buttonVariants({
+              size: 'lg',
+              className:
+                'flex items-center gap-2 bg-gold font-bold text-gold-foreground hover:bg-gold/90',
+            })}
           >
             تواصل معنا
             <ArrowLeft className="size-4" />
           </a>
           <a
             href="mailto:investors@hawel.sd"
-            className={cn(
-              buttonVariants({ size: 'lg', variant: 'outline' }),
-              'border-primary-foreground/30 bg-transparent font-semibold text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground',
-            )}
+            className={buttonVariants({
+              size: 'lg',
+              variant: 'outline',
+              className:
+                'border-primary-foreground/30 bg-transparent font-semibold text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground',
+            })}
           >
             استفسارات المستثمرين
           </a>

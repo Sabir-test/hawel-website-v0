@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { buttonVariants } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
 import { HawelLogo } from './logo'
 
 const navLinks = [
@@ -40,11 +39,11 @@ export function SiteHeader() {
         <div className="hidden items-center gap-3 lg:flex">
           <a
             href="#contact"
-            className={cn(buttonVariants({ variant: 'ghost' }), 'text-sm font-semibold')}
+            className={buttonVariants({ variant: 'ghost', className: 'text-sm font-semibold' })}
           >
             تسجيل الدخول
           </a>
-          <a href="#contact" className={cn(buttonVariants(), 'font-semibold')}>
+          <a href="#contact" className={buttonVariants({ className: 'font-semibold' })}>
             ابدأ الآن
           </a>
         </div>
@@ -76,7 +75,7 @@ export function SiteHeader() {
             <a
               href="#contact"
               onClick={() => setOpen(false)}
-              className={cn(buttonVariants(), 'mt-2 font-semibold')}
+              className={buttonVariants({ className: 'mt-2 font-semibold' })}
             >
               ابدأ الآن
             </a>
