@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { buttonVariants } from '@/components/ui/button'
 import { HawelLogo } from './logo'
+import { SitePreferences } from './site-preferences'
 
 const navLinks = [
   { href: '#summary', label: 'نظرة عامة' },
@@ -37,6 +38,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
+          <SitePreferences />
           <a
             href="#contact"
             className={buttonVariants({ variant: 'ghost', className: 'text-sm font-semibold' })}
@@ -62,6 +64,9 @@ export function SiteHeader() {
       {open && (
         <div className="border-t border-border bg-background lg:hidden">
           <nav className="mx-auto flex max-w-7xl flex-col px-5 py-3">
+            <div className="flex items-center justify-end gap-2 border-b border-border pb-3">
+              <SitePreferences />
+            </div>
             {navLinks.map((l) => (
               <a
                 key={l.href}

@@ -46,7 +46,15 @@ export default function RootLayout({
       lang="ar"
       dir="rtl"
       className={`${cairo.variable} ${geistMono.variable} bg-background`}
+      suppressHydrationWarning
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(() => { try { const theme = localStorage.getItem('hawel-theme'); const dark = theme ? theme === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches; document.documentElement.classList.toggle('dark', dark); } catch {} })()`,
+          }}
+        />
+      </head>
       <body className="font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
