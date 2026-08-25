@@ -5,10 +5,18 @@ import { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 
 export function SitePreferences() {
-  const [dark, setDark] = useState(() =>
-    typeof document !== 'undefined' && document.documentElement.classList.contains('dark'),
-  )
+  const [dark, setDark] = useState(false)
   const [english, setEnglish] = useState(false)
+
+  useEffect(() => {
+    const savedTheme = window.localStorage.getItem('hawel-theme')
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const initialDark = savedTheme ? savedTheme === 'dark' : prefersDark
+    const frame = window.requestAnimationFrame(() => setDark(initialDark))
+
+    document.documentElement.classList.toggle('dark', initialDark)
+    return () => window.cancelAnimationFrame(frame)
+  }, [])
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', dark)
