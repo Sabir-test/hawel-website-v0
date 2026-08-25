@@ -27,7 +27,10 @@ export function Hero() {
         className="pointer-events-none absolute -left-10 top-1/2 size-[300px] -translate-y-1/2 rounded-full border border-gold/15"
       />
 
-      <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 py-20 lg:grid-cols-2 lg:gap-8 lg:px-8 lg:py-28">
+      <div
+        className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 py-20 lg:grid-cols-2 lg:gap-8 lg:px-8 lg:py-28"
+        style={{ backgroundColor: 'rgba(63, 106, 2, 0.65)' }}
+      >
         <div className="flex flex-col items-start gap-6">
           <span className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/10 px-4 py-1.5 text-xs font-semibold text-gold">
             <span className="size-1.5 rounded-full bg-gold" />
@@ -36,7 +39,7 @@ export function Hero() {
 
           <h1 className="text-balance text-4xl font-extrabold leading-[1.15] tracking-tight sm:text-5xl lg:text-6xl">
             اجعل أي هاتف يقبل الدفع —{' '}
-            <span className="text-gold">ابدأ اليوم</span>
+            <span className="text-gold" style={{ color: '#000000' }}>ابدأ اليوم</span>
           </h1>
 
           <p className="max-w-xl text-pretty text-base leading-relaxed text-primary-foreground/80 sm:text-lg">
@@ -53,6 +56,7 @@ export function Hero() {
                 className:
                   'flex items-center gap-2 bg-gold font-bold text-gold-foreground hover:bg-gold/90',
               })}
+              style={{ backgroundColor: '#ccc600' }}
             >
               كن من أوائل التجار
               <ArrowLeft className="size-4" />
@@ -83,17 +87,16 @@ export function Hero() {
         </div>
 
         <div className="relative">
-          <div className="absolute -inset-4 rounded-[2rem] bg-gold/10 blur-2xl" />
-          <div className="relative overflow-hidden rounded-3xl border border-gold/20 shadow-2xl">
-            <Image
-              src="/images/hero-merchant.png"
-              alt="تاجرة سودانية شابة تستخدم تطبيق حوِّل لتأكيد دفعة في متجرها"
-              width={720}
-              height={820}
-              priority
-              className="h-full w-full object-cover"
-            />
-          </div>
+          <Image
+            src="/images/hero-merchant.png"
+            alt="تاجرة سودانية شابة تستخدم تطبيق حوِّل لتأكيد دفعة في متجرها"
+            width={720}
+            height={820}
+            priority
+            className="h-full w-full object-cover"
+          />
+          <div className="absolute -inset-4 inline-flex flex-col rounded-[2rem] bg-gold/10 blur-2xl" />
+          <div className="relative overflow-hidden rounded-3xl border border-gold/20 shadow-2xl" />
         </div>
       </div>
     </section>
